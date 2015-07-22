@@ -1,10 +1,19 @@
 const uint8_t scale[5] =
 {
-  MIDI_C4,
-  MIDI_D4,
-  MIDI_E4,
-  MIDI_G4,
-  MIDI_A5
+  mC4,
+  mD4,
+  mE4,
+  mG4,
+  mA4
 };
 
-const uint8_t song
+const midi_chord song[] =
+{
+  {mC4, mNone},
+  {mD4, mNone},
+  {mE4, mNone},
+  {mG4, mNone},
+  {mA4, mNone}
+};
+
+const int songLength = sizeof(song) / sizeof(midi_chord);

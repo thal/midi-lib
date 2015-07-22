@@ -26,3 +26,27 @@ void MIDI::noteOff( int pitch )
   _serial.write(pitch);
   _serial.write(MIDI_VELOCITY_MID);
 }
+
+void MIDI::playChord( midi_chord chord)
+{
+  for( int i = 0; i < sizeof(NOTES_PER_CHORD); i++ )
+  {
+    midi_note note = chord.notes[i];
+    if( mNone != note )
+    {
+      noteOn(note);
+    }
+  }
+}
+
+void MIDI::releaseChord( midi_chord chord)
+{
+  for( int i = 0; i < sizeof(NOTES_PER_CHORD); i++ )
+  {
+    midi_note note = chord.notes[i];
+    if( mNone != note )
+    {
+      noteOff(note);
+    }
+  }
+}
